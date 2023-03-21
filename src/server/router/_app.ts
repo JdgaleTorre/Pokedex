@@ -1,17 +1,25 @@
+import { PokemonClient } from "pokenode-ts";
 import { z } from "zod";
 import { procedure, router } from "../trcp";
-// import { procedure, router } from "";
+
+
 export const appRouter = router({
-  hello: procedure
+  listPokemons: procedure
     .input(
       z.object({
-        text: z.string(),
+        index: z.number(),
       })
     )
-    .query(({ input }) => {
-      return {
-        greeting: `hello ${input.text}`,
-      };
+    .query(async ({ input }) => {
+      const api = new PokemonClient();
+      const response = await api.listPokemons(0, input.index);
+
+      const pokemonList = response.results.map((p, index) => ({
+        id: index + 1,
+        name: p.name,
+      }));
+
+      return { list: pokemonList };
     }),
 });
 // export type definition of API
