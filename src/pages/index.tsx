@@ -14,7 +14,7 @@ function HomePage() {
       <main className="flex min-h-screen max-lg: flex-col p-3">
         <div className="max-w-5xl">
           <SearchBox />
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap mt-6">
             {list! &&
               list.list.map((p) => (
                 <PokemonShort
