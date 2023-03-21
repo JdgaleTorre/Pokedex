@@ -21,6 +21,7 @@ function HomePage() {
                   key={`${p.id}-${p.name}`}
                   index={p.id}
                   name={p.name}
+                  sprite={p.sprite}
                 />
               ))}
           </div>
