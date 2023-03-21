@@ -1,6 +1,7 @@
 import React from "react";
 import PokemonShort from "~/components/pokemonShort";
 import SearchBox from "~/components/searchBox";
+import { trpc } from "~/utils/trpc";
 
 function HomePage() {
   return (
