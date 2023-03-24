@@ -4,9 +4,9 @@ import SearchAlt from "~/svgs/search-alt";
 
 function SearchBox() {
   return (
-    <div className="bg-slate-50 flex p-4 w-full m-3 rounded-lg justify-between shadow-md">
+    <div className="bg-white flex p-4 w-full m-3 rounded-lg justify-between shadow-md">
       <input
-        className="flex align-middle bg-slate-50 w-full focus:outline-none"
+        className="flex align-middle bg-white w-full focus:outline-none"
         placeholder="Search your Pokémon"
         type="text"
       />

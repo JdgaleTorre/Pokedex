@@ -10,7 +10,7 @@ export default function PokemonShort({
   sprite: string;
 }) {
   return (
-    <div className="bg-slate-50 my-8 mx-3 w-56 h-28 rounded-lg flex flex-auto flex-col justify-center text-center items-center relative shadow-lg cursor-pointer hover:border border-gray-500 group">
+    <div className="bg-white my-8 mx-3 w-56 h-28 rounded-lg flex flex-auto flex-col justify-center text-center items-center relative shadow-lg cursor-pointer hover:border border-gray-500 group">
       <Image
         className="absolute -top-14 transition-all group-hover:scale-125"
         src={sprite}
