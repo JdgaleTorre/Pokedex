@@ -23,6 +23,15 @@ export const appRouter = router({
 
       return { list: pokemonList };
     }),
+  getPokemonBy: procedure
+    .input(z.object({ index: z.number() }))
+    .query(async ({ input }) => {
+      const api = new PokemonClient();
+      const response = await api.getPokemonById(input.index);
+      const speciesResponse = await api.getPokemonSpeciesById(input.index);
+
+      return { ...response, ...speciesResponse };
+    }),
 });
 // export type definition of API
 export type AppRouter = typeof appRouter;

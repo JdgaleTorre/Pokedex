@@ -1,3 +1,73 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*,
+body {
+  font-family: "Outfit", sans-serif;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+.bg-normal {
+  background-color: #bcbcac;
+}
+
+.bg-fighting {
+  background-color: #bc5442;
+}
+
+.bg-poison {
+  background-color: #ab549a;
+}
+.bg-ground {
+  background-color: #debc54;
+}
+.bg-rock {
+  background-color: #bcac66;
+}
+.bg-bug {
+  background-color: #abbc1c;
+}
+.bg-ghost {
+  background-color: #6666bc;
+}
+.bg-steel {
+  background-color: #abacbc;
+}
+.bg-fire {
+  background-color: #ff421c;
+}
+.bg-water {
+  background-color: #2f9aff;
+}
+.bg-grass {
+  background-color: #78cd54;
+}
+.bg-electric {
+  background-color: #ffcd30;
+}
+.bg-psychic {
+  background-color: #ff549a;
+}
+.bg-ice {
+  background-color: #78deff;
+}
+.bg-dragon {
+  background-color: #7866ef;
+}
+.bg-dark {
+  background-color: #785442;
+}
+.bg-fairy {
+  background-color: #ffacff;
+}
+.bg-shadow {
+  background-color: #0e2e4c;
+}
+
+.bg-flying {
+  background-color: #669aff;
+}
