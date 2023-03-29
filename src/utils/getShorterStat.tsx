@@ -21,6 +21,5 @@ export default function getShorterStat(stat: string) {
       shortStat = stat;
       break;
   }
-  console.log(shortStat);
   return shortStat;
 }
