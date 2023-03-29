@@ -31,9 +31,9 @@ function HomePage() {
       </Head>
       <div className="flex justify-center bg-gradient-to-b from-[#f7f8fc] to-[#f7f8fc]">
         <main className="flex min-h-screen max-lg: flex-row p-3">
-          <div className="max-w-5xl mr-64">
+          <div className="max-w-5xl">
             <SearchBox />
-            <div className="flex flex-wrap mt-6">
+            <div className="flex flex-wrap mt-6 w-full">
               {list! &&
                 list.list.map((p) => (
                   <div
@@ -50,7 +50,7 @@ function HomePage() {
             </div>
           </div>
         </main>
-        <div className="fixed bottom-0 right-0 bg-white w-96 h-4/5 mr-12 rounded-t-2xl shadow-lg">
+        <div className="fixed bottom-0 right-0 bg-white w-96 h-4/5 mr-12 rounded-t-2xl shadow-lg max-2xl:invisible">
           <div className="flex h-full justify-center items-center relative">
             {pokemonSelected === 0 && (
               <div className="flex h-full justify-center items-center relative">
