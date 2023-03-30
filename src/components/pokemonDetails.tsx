@@ -57,7 +57,7 @@ export default function PokemonDetail({
             </div>
             <div className="flex">
               {pokemon.types.map((t) => (
-                <PokemonType type={t.type.name} />
+                <PokemonType type={t.type.name} key={`type-${t.type.name}`} />
               ))}
             </div>
             <div className="font-bold text-xl mt-2 capitalize my-1">
@@ -94,7 +94,10 @@ export default function PokemonDetail({
               </div>
               <div className="flex justify-center flex-wrap">
                 {pokemon.abilities.map((x) => (
-                  <div className="bg-[#f7f8fc] capitalize rounded-lg py-1 px-2 mx-2 font-bold w-2/5 text-center my-2">
+                  <div
+                    className="bg-[#f7f8fc] capitalize rounded-lg py-1 px-2 mx-2 font-bold w-2/5 text-center my-2"
+                    key={`ability-${x.ability.name}`}
+                  >
                     {x.ability.name}
                   </div>
                 ))}
