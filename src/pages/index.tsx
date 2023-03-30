@@ -50,7 +50,7 @@ function HomePage() {
               transition={{ duration: 0.75 }}
               className="flex min-h-screen max-lg: flex-row p-3"
             >
-              <div className="max-w-5xl">
+              <div className="w-full xl:mr-[28rem] xl:ml-36">
                 <SearchBox />
                 <div className="flex flex-wrap mt-6 w-full">
                   {list! &&
@@ -58,6 +58,7 @@ function HomePage() {
                       <div
                         onClick={() => setPokemonSelected(p.id)}
                         key={`${p.id}-${p.name}`}
+                        className="flex grow-[0.5] min-w-[50%] md:min-w-[33%] lg:min-w-[25%]"
                       >
                         <PokemonShort
                           index={p.id}
@@ -73,11 +74,13 @@ function HomePage() {
               initial={{ y: "100%" }}
               animate={{ y: "0%" }}
               transition={{ duration: 0.75 }}
-              className="fixed bottom-0 right-0 w-96 h-4/5 mr-12 max-2xl:invisible"
+              className={`bottom-0 right-0 h-4/5 w-full xl:w-96 xl:mr-12 ${
+                pokemonSelected === 0 ? "hidden" : "fixed"
+              }`}
             >
-              <div className="flex h-full justify-center items-center relative">
+              <div className="flex h-full w-full justify-center items-center relative">
                 {pokemonSelected === 0 && (
-                  <div className="flex h-full justify-center items-center relative bg-white rounded-t-2xl shadow-lg w-96">
+                  <div className="h-full w-full justify-center items-center relative bg-white rounded-t-2xl shadow-lg hidden xl:flex">
                     <div className="absolute -top-28">
                       <Image
                         src="/no-pokemon-selected.png"
@@ -90,7 +93,10 @@ function HomePage() {
                   </div>
                 )}
                 {pokemonSelected !== 0 && (
-                  <PokemonDetail pokemonSelected={pokemonSelected} />
+                  <PokemonDetail
+                    pokemonSelected={pokemonSelected}
+                    onClose={() => setPokemonSelected(0)}
+                  />
                 )}
               </div>
             </m.div>
