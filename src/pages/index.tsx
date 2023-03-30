@@ -77,7 +77,7 @@ function HomePage() {
             >
               <div className="flex h-full justify-center items-center relative">
                 {pokemonSelected === 0 && (
-                  <div className="flex h-full justify-center items-center relative">
+                  <div className="flex h-full justify-center items-center relative bg-white rounded-t-2xl shadow-lg w-96">
                     <div className="absolute -top-28">
                       <Image
                         src="/no-pokemon-selected.png"
