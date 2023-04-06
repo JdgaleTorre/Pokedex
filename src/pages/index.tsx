@@ -74,13 +74,13 @@ function HomePage() {
               initial={{ y: "100%" }}
               animate={{ y: "0%" }}
               transition={{ duration: 0.75 }}
-              className={`bottom-0 right-0 h-4/5 w-full xl:w-96 xl:mr-12 ${
-                pokemonSelected === 0 ? "hidden" : "fixed"
+              className={`bottom-0 right-0 h-4/5 w-full xl:w-96 xl:mr-12 fixed ${
+                pokemonSelected === 0 ? "max-lg:hidden" : ""
               }`}
             >
               <div className="flex h-full w-full justify-center items-center relative">
                 {pokemonSelected === 0 && (
-                  <div className="h-full w-full justify-center items-center relative bg-white rounded-t-2xl shadow-lg hidden xl:flex">
+                  <div className="h-full w-full justify-center items-center relative bg-white rounded-t-2xl shadow-lg hidden lg:flex">
                     <div className="absolute -top-28">
                       <Image
                         src="/no-pokemon-selected.png"
