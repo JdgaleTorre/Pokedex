@@ -39,7 +39,7 @@ export default function PokemonDetail({
             transition={{ duration: 0.75 }}
           >
             <div
-              className="absolute right-10 top-10 bg-white flex justify-center items-center rounded-lg p-5 shadow-lg hover:cursor-pointer"
+              className="absolute right-10 top-10 bg-white flex justify-center items-center rounded-lg p-4 shadow-lg hover:cursor-pointer"
               onClick={() => onClose()}
             >
               <Image
@@ -66,8 +66,8 @@ export default function PokemonDetail({
                           .animated.front_default
                       : "/no-pokemon-selected.png"
                   }
-                  height={192}
-                  width={192}
+                  height={160}
+                  width={160}
                   alt="pokemon sprites"
                   className="pixelated -mt-24"
                 />
