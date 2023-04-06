@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Image from "next/image";
 import React, { useState } from "react";
 import PokemonDetail from "~/components/pokemonDetails";
@@ -17,18 +16,6 @@ function HomePage() {
 
   return (
     <>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="use-credentials"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <div className="flex justify-center bg-gradient-to-b from-[#f7f8fc] to-[#f7f8fc]">
         {isLoading && (
           <div className="flex min-h-screen h-full justify-center items-center">
@@ -38,6 +25,7 @@ function HomePage() {
                 height={96}
                 width={96}
                 alt="pokeball"
+                priority
               />
             </div>
           </div>
