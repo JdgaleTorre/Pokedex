@@ -58,19 +58,21 @@ export default function PokemonDetail({
           >
             <div className="flex flex-col justify-center items-center">
               {pokemon && (
-                <Image
-                  src={
-                    pokemon?.sprites.versions["generation-v"]["black-white"]
-                      .animated.front_default
-                      ? pokemon?.sprites.versions["generation-v"]["black-white"]
-                          .animated.front_default
-                      : "/no-pokemon-selected.png"
-                  }
-                  height={160}
-                  width={160}
-                  alt="pokemon sprites"
-                  className="pixelated -mt-24"
-                />
+                <div className="w-36 h-36 lg:w-44 lg:h-44 relative -mt-24">
+                  <Image
+                    src={
+                      pokemon?.sprites.versions["generation-v"]["black-white"]
+                        .animated.front_default
+                        ? pokemon?.sprites.versions["generation-v"][
+                            "black-white"
+                          ].animated.front_default
+                        : "/no-pokemon-selected.png"
+                    }
+                    alt="pokemon sprites"
+                    className="pixelated "
+                    fill
+                  />
+                </div>
               )}
 
               <div className="font-bold text-gray-400 mt-2 text-xs">{`No. ${pokemon?.id}`}</div>
