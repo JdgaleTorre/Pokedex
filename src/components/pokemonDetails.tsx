@@ -54,7 +54,7 @@ export default function PokemonDetail({
             initial={{ y: "100%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 0.5 }}
-            className="flex h-full w-full justify-center items-start relative  bg-white rounded-t-2xl shadow-lg "
+            className="flex h-full w-full justify-center items-start relative bg-white rounded-t-2xl shadow-lg text-sm md:text-base"
           >
             <div className="flex flex-col justify-center items-center">
               {pokemon && (
