@@ -5,12 +5,8 @@ import PokemonShort from "~/components/pokemonShort";
 import SearchBox from "~/components/searchBox";
 import { trpc } from "~/utils/trpc";
 import { motion as m } from "framer-motion";
-import { appRouter } from "~/server/router/_app";
-import superjson from "superjson";
-import { createProxySSGHelpers } from "@trpc/react-query/ssg";
-import { InferGetServerSidePropsType } from "next";
 
-function HomePage(props: InferGetServerSidePropsType<typeof getStaticProps>) {
+function HomePage() {
   const [pokemonSelected, setPokemonSelected] = useState(0);
   const { data: list, isLoading } = trpc.listPokemons.useQuery({ index: 151 });
 
@@ -62,9 +58,7 @@ function HomePage(props: InferGetServerSidePropsType<typeof getStaticProps>) {
               initial={{ y: "100%" }}
               animate={{ y: "0%" }}
               transition={{ duration: 0.75 }}
-              className={`bottom-0 right-0 h-4/5 w-full xl:w-96 xl:mr-12 fixed ${
-                pokemonSelected === 0 ? "max-lg:hidden" : ""
-              }`}
+              className={`bottom-0 right-0 h-4/5 w-full xl:w-96 xl:mr-12 fixed ${pokemonSelected === 0 ? "max-lg:hidden" : ""}`}
             >
               <div className="flex h-full w-full justify-center items-center relative">
                 {pokemonSelected === 0 && (
@@ -93,31 +87,6 @@ function HomePage(props: InferGetServerSidePropsType<typeof getStaticProps>) {
       </div>
     </>
   );
-}
-
-// export async function getStaticProps() {
-//   const { data: list } = trpc.listPokemons.useQuery({ index: 151 });
-//   return {
-//     props: {
-//       list,
-//     },
-//   };
-// }
-
-export async function getStaticProps() {
-  const helpers = createProxySSGHelpers({
-    router: appRouter,
-    ctx: {},
-    transformer: superjson, // optional - adds superjson serialization
-  });
-
-  await helpers.listPokemons.fetch({ index: 151 });
-  return {
-    props: {
-      list: helpers.dehydrate(),
-    },
-    revalidate: 1,
-  };
 }
 
 export default HomePage;
