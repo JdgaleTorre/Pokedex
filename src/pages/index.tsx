@@ -1,14 +1,35 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PokemonDetail from "~/components/pokemonDetails";
 import PokemonShort from "~/components/pokemonShort";
 import SearchBox from "~/components/searchBox";
 import { trpc } from "~/utils/trpc";
 import { motion as m } from "framer-motion";
 
+type list = { id: number; name: string; sprite: string; }
+
+
 function HomePage() {
   const [pokemonSelected, setPokemonSelected] = useState(0);
   const { data: list, isLoading } = trpc.listPokemons.useQuery({ index: 151 });
+  const [pokemonVisible, setPokemonVisible] = useState(list || undefined);
+
+  useEffect(() => {
+    setPokemonVisible(list)
+  }, [list])
+
+  const onFilterPokemons = (name: string) => {
+    if (name === '') {
+      setPokemonVisible(list); // Show all Pokémon if the input is empty
+    } else {
+      if (list) {
+        const allPokemons = list.list;
+        const filtered = allPokemons.filter(pokemon => pokemon.name.toLowerCase().includes(name.toLowerCase()))
+
+        setPokemonVisible({ list: filtered })
+      }
+    }
+  };
 
   return (
     <>
@@ -35,10 +56,10 @@ function HomePage() {
               className="flex min-h-screen max-lg: flex-row p-3"
             >
               <div className="w-full xl:mr-[28rem] xl:ml-36">
-                <SearchBox />
+                <SearchBox onChange={onFilterPokemons} />
                 <div className="flex flex-wrap mt-6 w-full">
-                  {list! &&
-                    list.list.map((p) => (
+                  {pokemonVisible! &&
+                    pokemonVisible.list.map((p) => (
                       <div
                         onClick={() => setPokemonSelected(p.id)}
                         key={`${p.id}-${p.name}`}
