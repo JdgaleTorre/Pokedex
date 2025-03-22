@@ -33,7 +33,7 @@ function HomePage() {
 
   return (
     <>
-      <div className="flex justify-center bg-gradient-to-b from-[#f7f8fc] to-[#f7f8fc]">
+      <div className="justify-center bg-gradient-to-b from-[#f7f8fc] to-[#f7f8fc]">
         {isLoading && (
           <div className="flex min-h-screen h-full justify-center items-center">
             <div className="animate-spin">
@@ -57,7 +57,7 @@ function HomePage() {
             >
               <div className="w-full xl:mr-[28rem] xl:ml-36">
                 <SearchBox onChange={onFilterPokemons} />
-                <div className="flex flex-wrap mt-6 w-full">
+                <div className="w-full flex flex-wrap mt-6">
                   {pokemonVisible! &&
                     pokemonVisible.list.map((p) => (
                       <div
